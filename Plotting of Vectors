@@ -1,0 +1,74 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib
+
+#5 different vectors
+VectorA = np.array([25,15])
+VectorB = np.array([20,-15])
+VectorC = np.array([10,25])
+VectorD = np.array([18,26])
+VectorE = np.array([23,-18])
+print('Vector 1 is', VectorA)
+print('Vector 2 is', VectorB)
+print('Vector 3 is', VectorC)
+print('Vector 4 is', VectorD)
+print('Vector 5 is', VectorE)
+print('-'*32)
+
+#Addition & Subtraction
+print('Adding and Subtracting')
+Adding = np.add(VectorA, VectorB)
+Subtracting = np.subtract(Adding, VectorD)
+print('Vector 1 + Vector 2 is equal to', Adding,
+      '\nthe answer when subtracted to Vector 4 is equal to', Subtracting)
+print('-'*32)
+
+#Multiplication & Division
+print("Multiply and Divide")
+Multiply = np.multiply(VectorD, VectorC)
+Divide = np.divide (Multiply, VectorB)
+print('Vector 4 * Vector 3 is equal to', Multiply,
+      '\ndividing it into Vector 2 is equal to', Divide)
+print('-'*32)
+
+#Squaring
+print('Squareroot')
+Square = np.square(VectorB)
+Square_root = np.sqrt(VectorC)
+print('The square of Vector 2 is', Square,
+      '\nVector B is equal to the square root of',Square_root)
+print('-'*32)
+
+#Summation
+Summation = np.sum(VectorB)
+print('Summation')
+print('Vector 2 is equal to the summation of', Summation)
+print('-'*32)
+
+#Visualisation
+plt.title('Visualisation of Vectors')
+plt.xlim(-60,70)
+plt.ylim((-60,70))
+
+#Plotting Of Data
+plt.scatter(VectorA[0], VectorA[1], label='Vector 1', c='sandybrown')
+plt.scatter(VectorB[0], VectorB[1], label='Vector 2', c='darkseagreen')
+plt.scatter(VectorC[0], VectorC[1], label='Vector 3', c='lightcoral')
+plt.scatter(VectorD[0], VectorD[1], label='Vector 4', c='slategray')
+plt.scatter(VectorE[0], VectorE[1], label='Vector 5', c='dimgrey')
+
+#Plotting of Vector Lines
+plt.quiver(0, 0, VectorA[0], VectorA[1], angles='xy', scale_units='xy', scale=1, color='mediumspringgreen')
+plt.quiver(VectorA[0], VectorA[1], VectorB[0], VectorB[1], angles='xy', scale_units='xy', scale=1, color='indigo')
+VectorF = VectorA + VectorB
+plt.quiver(0, 0, VectorF[0], VectorF[1], angles='xy', scale_units='xy', scale=1, color='darkorange')
+
+R_mag = np.sqrt(np.sum(VectorA**2+VectorB**2))
+rise = VectorF[1]
+run = VectorF[0]
+slope = rise/run
+print("This is the slope", slope)
+
+plt.grid()
+plt.legend()
+plt.show()
